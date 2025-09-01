@@ -14,8 +14,7 @@
     --color-bg: #fafafa;
     --color-text: #222;
     --color-muted: #666;
-    --color-accent: #4f46e5;
-    /* acento suave tipo indigo */
+    --color-accent: #4f46e5; /* acento suave tipo indigo */
     --color-card: #fff;
     --radius: 1rem;
     --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.05);
@@ -64,6 +63,8 @@ html {
     border-radius: var(--radius);
     box-shadow: var(--shadow-sm);
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
     transition: transform var(--transition), box-shadow var(--transition);
 }
 
@@ -76,8 +77,30 @@ html {
 }
 
 .thumb {
-    background: linear-gradient(135deg, #e0e0e0, #f5f5f5);
-    height: 160px;
+    position: relative;
+    height: 250px;
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: linear-gradient(135deg, #f0f0f0, #e2e1e1);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.card:hover .thumb {
+    transform: scale(1.05);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+.card:hover .thumb img {
+    transform: scale(1.1);
 }
 
 .card-body {
@@ -90,6 +113,7 @@ html {
 .card-title {
     font-size: clamp(1.1rem, 1.5vw, 1.3rem);
     font-weight: 600;
+    transition: color var(--transition);
 }
 
 .card-meta {
@@ -103,14 +127,24 @@ html {
     flex-grow: 1;
 }
 
-/* Hover + micro interacción */
 .card:hover {
     transform: translateY(-6px);
     box-shadow: var(--shadow-md);
 }
 
+.card:hover .card-title {
+    color: var(--color-accent);
+}
+
 .card:active {
     transform: scale(0.98);
+    animation: boop 150ms ease-in-out;
+}
+
+@keyframes boop {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.03) rotate(-1deg); }
+    100% { transform: scale(1); }
 }
 
 /* -------------------------
@@ -159,37 +193,6 @@ html {
 }
 
 /* -------------------------
-   Animaciones juguetonas
--------------------------- */
-a,
-button,
-.card {
-    transition: all var(--transition);
-}
-
-.card:hover .card-title {
-    color: var(--color-accent);
-}
-
-.card:active {
-    animation: boop 150ms ease-in-out;
-}
-
-@keyframes boop {
-    0% {
-        transform: scale(1);
-    }
-
-    50% {
-        transform: scale(1.03) rotate(-1deg);
-    }
-
-    100% {
-        transform: scale(1);
-    }
-}
-
-/* -------------------------
    Header minimalista
 -------------------------- */
 header {
@@ -209,7 +212,6 @@ header.scrolled {
     box-shadow: var(--shadow-sm);
 }
 
-/* Logo */
 .logo {
     font-size: 1.25rem;
     font-weight: 700;
@@ -220,7 +222,6 @@ header.scrolled {
     color: var(--color-text);
 }
 
-/* Nav */
 header nav {
     display: flex;
     gap: 2rem;
@@ -234,7 +235,6 @@ header nav a {
     transition: color var(--transition);
 }
 
-/* Subrayado animado */
 header nav a::after {
     content: "";
     position: absolute;
@@ -256,7 +256,6 @@ header nav a:hover::after {
     transform: scaleX(1);
 }
 
-/* Icons */
 .icons {
     display: flex;
     align-items: center;
@@ -272,7 +271,6 @@ header nav a:hover::after {
     color: var(--color-accent);
 }
 
-/* Botón hamburguesa */
 .menu-toggle {
     display: none;
     background: none;
@@ -307,81 +305,78 @@ header nav a:hover::after {
     }
 }
 
+/* -------------------------
+   Mini Hero
+-------------------------- */
 .mini-hero {
     position: relative;
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
     gap: 2rem;
-    padding: 4rem 8%;
-    min-height: 45vh;
-    background: linear-gradient(135deg, #0d1117, #1f2937);
+    padding: 5rem 8%;
+    min-height: 55vh;
+    background: linear-gradient(135deg, #0d1117, #1f2937 60%, #111827);
     border-radius: 2rem;
     overflow: hidden;
     margin: 3rem auto;
     max-width: 1100px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
 }
 
-/* Fondo con shapes suaves */
-.mini-hero::before {
-    content: "";
-    position: absolute;
-    top: -50px;
-    left: -50px;
-    width: 200px;
-    height: 200px;
-    background: radial-gradient(circle, rgba(59, 130, 246, .4), transparent 70%);
-    border-radius: 50%;
-    z-index: 0;
-}
-
+.mini-hero::before,
 .mini-hero::after {
     content: "";
     position: absolute;
-    bottom: -50px;
-    right: -50px;
-    width: 250px;
-    height: 250px;
-    background: radial-gradient(circle, rgba(236, 72, 153, .4), transparent 70%);
     border-radius: 50%;
     z-index: 0;
+}
+
+.mini-hero::before {
+    top: -60px;
+    left: -60px;
+    width: 240px;
+    height: 240px;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.5), transparent 70%);
+    filter: blur(10px);
+    animation: float1 6s infinite ease-in-out alternate;
+}
+
+.mini-hero::after {
+    bottom: -60px;
+    right: -60px;
+    width: 280px;
+    height: 280px;
+    background: radial-gradient(circle, rgba(236, 72, 153, 0.5), transparent 70%);
+    filter: blur(12px);
+    animation: float2 7s infinite ease-in-out alternate;
 }
 
 .mini-hero .content {
     position: relative;
     z-index: 1;
     color: #f3f4f6;
+    text-align: left;
+    animation: fadeInUp 1s ease forwards;
 }
 
 .mini-hero h2 {
-    font-size: 2rem;
+    font-size: clamp(2.2rem, 4vw, 3rem);
     margin-bottom: 1rem;
+    background: linear-gradient(90deg, #60a5fa, #ec4899);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 800;
+    letter-spacing: -0.02em;
 }
 
 .mini-hero p {
-    font-size: 1rem;
-    line-height: 1.6;
+    font-size: 1.1rem;
+    line-height: 1.7;
     color: #d1d5db;
+    max-width: 40ch;
+    animation: fadeInUp 1.2s ease forwards;
 }
-
-.mini-hero .visual {
-    position: relative;
-    z-index: 1;
-    display: flex;
-    justify-content: center;
-}
-
-.mini-hero .visual img {
-    max-width: 220px;
-    border-radius: 1rem;
-    transition: transform .3s ease;
-}
-
-.mini-hero .visual img:hover {
-    transform: scale(1.05);
-}
-
 
 .mini-hero .visual {
     position: relative;
@@ -389,12 +384,119 @@ header nav a:hover::after {
     display: flex;
     justify-content: center;
     align-items: center;
-    max-height: 280px; /* controla altura */
+    max-height: 320px;
+    animation: float3 5s infinite ease-in-out alternate;
 }
 
 .mini-hero .visual img {
     width: 100%;
-    max-width: 330px;
+    max-width: 340px;
     height: auto;
+    transition: transform 0.4s ease;
 }
 
+.mini-hero .visual img:hover {
+    transform: scale(1.07) rotate(-2deg);
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float1 {
+    from { transform: translateY(0) translateX(0); }
+    to { transform: translateY(30px) translateX(20px); }
+}
+
+@keyframes float2 {
+    from { transform: translateY(0) translateX(0); }
+}
+
+@keyframes float3 {
+    from { transform: translateY(0); }
+    to { transform: translateY(15px); }
+}
+
+/* -------------------------
+   Categories estilazo
+-------------------------- */
+.categories {
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    margin-block: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.categories h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--color-text);
+    border-bottom: 2px solid var(--color-accent);
+    display: inline-block;
+    padding-bottom: .25rem;
+}
+
+.category-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.category-tags div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.category-tags img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    border-radius: 12px;
+    background: #f4f4f4;
+    padding: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.category-tags div:hover img {
+    transform: scale(1.1);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+.category-tags p {
+    margin-top: 0.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-accent);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.category-tags div:hover p {
+    color: #fff;
+    background: var(--color-accent);
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transform: scale(1.1);
+}
+
+.category canvas {
+    width: 120px;               /* un poco más grande para destacar */
+    height: 120px;
+    display: block;
+    margin: 0 auto 10px auto;   /* centrado y espacio abajo para el texto */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* animación al hover */
+    cursor: pointer;
+}
+
+.category canvas:hover {
+    transform: translateY(-5px) scale(1.05); /* efecto flotante */
+}

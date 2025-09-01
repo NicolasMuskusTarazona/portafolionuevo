@@ -6,152 +6,132 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Notas & Artículos</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 
 <body>
-    <header id="siteHeader">
-        <div class="logo">Nicolas <span>Muskus Tarazona</span></div>
+    <div id="app">
+        <header id="siteHeader">
+            <div class="logo">Nicolás <span>Muskus Tarazona</span></div>
 
-        <nav>
-            <a href="#">Categories</a>
-            <a href="#">Courses</a>
-            <a href="#">Goodies</a>
-            <a href="#">About</a>
-        </nav>
+            <nav>
+                <a href="#">Categorías</a>
+                <a href="#">Cursos</a>
+                <a href="#">Acerca de mí</a>
+            </nav>
+        </header>
 
-        <div class="icons">
-            <i class="fa-solid fa-rss"></i>
-            <button class="menu-toggle" aria-label="Abrir menú">
-                <i class="fa-solid fa-bars"></i>
-            </button>
-        </div>
+        <section class="mini-hero reveal fade-left">
+            <div class="content">
+                <h2>Transformando código en resultados 🔥</h2>
+                <p>Desarrollador web especializado en la construcción de aplicaciones escalables y optimizadas, con
+                    dominio en arquitecturas frontend y backend orientadas a la eficiencia y la experiencia del usuario.
+                </p>
+            </div>
+            <div class="visual">
+                <img src="NicolasMuskus.png" alt="Ilustración">
+            </div>
+        </section>
 
-    </header>
+        <aside class="categories reveal fade-up">
+            <h3 class="reveal fade-right">Explora por categoría</h3>
+            <div class="category-tags">
+                <div class="category reveal fade-up" id="js-category">
+                    <canvas></canvas>
+                    <p>JavaScript</p>
+                </div>
+                <div class="category reveal fade-left" id="php-category">
+                    <canvas></canvas>
+                    <p>PHP</p>
+                </div>
+                <div class="category reveal zoom" id="laravel-category">
+                    <canvas></canvas>
+                    <p>Laravel</p>
+                </div>
+                <div class="category reveal fade-right" id="mysql-category">
+                    <canvas></canvas>
+                    <p>MySQL</p>
+                </div>
+                <div class="category reveal fade-right" id="postgresql-category">
+                    <canvas></canvas>
+                    <p>PostgreSQL</p>
+                </div>
+            </div>
+        </aside>
+        
 
-    <section class="mini-hero">
-        <div class="content">
-            <h2>Bienvenido a mi portafolio 🚀</h2>
-            <p>Desarrollador web con pasión por crear experiencias digitales modernas y elegantes.</p>
-        </div>
-        <div class="visual">
-            <img src="NicolasMuskus.png" alt="Ilustración">
-        </div>
-    </section>
+        <!-- Blog -->
+        <section id="blog" class="blog wrapper">
+            <h2 class="section-title">Notas & Artículos</h2>
+            <div class="grid">
 
-    <aside class="categories">
-        <h3>Browse by Category</h3>
-        <div class="category-tags">
-            <button>JavaScript</button>
-            <button>PHP</button>
-            <button>LARAVEL</button>
-            <button>MYSQL & PostgreSQL</button>
-        </div>
-    </aside>
+                <!-- Card Proyecto E-commerce / Catálogo de Café -->
+                <article class="card">
+                    <a href="https://github.com/NicolasMuskusTarazona/ProyectoPHP_Muskus_Nicolas_Muskus_Danilo"
+                        target="_blank" aria-label="Ver repositorio: Catálogo Web de Café Colombiano">
+                        <div class="card-body">
+                            <h3 class="card-title">Catálogo Web: Café Colombiano</h3>
+                            <p class="card-meta">PHP • MySQL • Slim • Frontend Moderno</p>
+                            <p class="card-excerpt">E-commerce de café colombiano con filtrado de variedades, panel
+                                administrativo, generación de catálogos PDF y Mapa Interactivo.</p>
+                        </div>
+                        <div class="thumb" aria-hidden="true">
+                            <img src="cafe.png" alt="Café Colombiano"
+                                style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                    </a>
+                </article>
 
-    <!-- Blog -->
-    <section id="blog" class="blog wrapper">
-        <h2 class="section-title">Notas & Artículos</h2>
-        <div class="grid">
 
-            <!-- Card 1 -->
-            <article class="card">
-                <a href="#" aria-label="Leer: Animaciones boop con CSS + JS">
-                    <!-- Aquí debería ir la miniatura de portada -->
-                    <div class="thumb" aria-hidden="true">
-                        <!-- <img src="img/boop.jpg" alt="" loading="lazy"> -->
-                    </div>
-                    <div class="card-body">
-                        <h3 class="card-title">Animaciones "boop" con CSS + JS</h3>
-                        <p class="card-meta">Interacciones • 4 min</p>
-                        <p class="card-excerpt">Cómo crear micro-animaciones que se sienten juguetonas pero sutiles.
-                        </p>
-                    </div>
-                </a>
-            </article>
+                <article class="card">
+                    <a href="https://github.com/NicolasMuskusTarazona/Proyecto_MySQL_II" target="_blank" aria-label="Ver repositorio: Sistema de Gestión de Cuotas Banco CL">
+                        <div class="card-body">
+                            <h3 class="card-title">Banco CL: Gestión de Cuotas</h3>
+                            <p class="card-meta">MySQL • SQL Avanzado • Procedimientos y Triggers</p>
+                            <p class="card-excerpt">
+                                Sistema de gestión integral de cuotas de tarjetas bancarias: cálculo automático, historial de pagos, reportes financieros y control de descuentos
+                            </p>
+                        </div>
+                        <div class="thumb" aria-hidden="true">
+                            <img src="banco.png" alt="Banco CL" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                    </a>
+                </article>
+                
+                <!-- 3 -->
+                <article class="card">
+                    <a href="https://github.com/NicolasMuskusTarazona/ProyectoPHP_Muskus_Nicolas_Muskus_Danilo"
+                        target="_blank" aria-label="Ver repositorio: Catálogo Web de Café Colombiano">
+                        <div class="card-body">
+                            <h3 class="card-title">Catálogo Web: Café Colombiano</h3>
+                            <p class="card-meta">PHP • MySQL • Slim • Frontend Moderno</p>
+                            <p class="card-excerpt">E-commerce de café colombiano con filtrado de variedades, panel
+                                administrativo, generación de catálogos PDF y Mapa Interactivo.</p>
+                        </div>
+                        <div class="thumb" aria-hidden="true">
+                            <img src="cafe.png" alt="Café Colombiano"
+                                style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                    </a>
+                </article>
 
-            <!-- Card 2 -->
-            <article class="card">
-                <a href="#" aria-label="Leer: Sombras suaves tipo elevación">
-                    <!-- Aquí debería ir un ícono de sombra / UI -->
-                    <div class="thumb" aria-hidden="true"></div>
-                    <div class="card-body">
-                        <h3 class="card-title">Sombras suaves tipo elevación</h3>
-                        <p class="card-meta">UI • 5 min</p>
-                        <p class="card-excerpt">Una receta de sombras que se ven modernas sin ensuciar la interfaz.
-                        </p>
-                    </div>
-                </a>
-            </article>
+            </div>
+        </section>
 
-            <!-- Card 3 -->
-            <article class="card">
-                <a href="#" aria-label="Leer: Hover highlights accesibles">
-                    <!-- Aquí podría ir un ícono de accesibilidad -->
-                    <div class="thumb" aria-hidden="true"></div>
-                    <div class="card-body">
-                        <h3 class="card-title">Hover highlights accesibles</h3>
-                        <p class="card-meta">Accesibilidad • 3 min</p>
-                        <p class="card-excerpt">Efectos de énfasis que funcionan con teclado y reducen el ruido
-                            visual.</p>
-                    </div>
-                </a>
-            </article>
+        <!-- Contacto -->
+        <section id="contact" class="contact wrapper">
+            <h2 class="section-title">Contacto</h2>
+            <p>¿Tienes una idea? <a class="hover-ink" href="mailto:hola@example.com">Escríbeme</a>.</p>
+        </section>
 
-            <!-- Card 4 -->
-            <article class="card">
-                <a href="#" aria-label="Leer: Layouts fluidos con clamp()">
-                    <!-- Imagen ilustrativa de tipografía adaptable -->
-                    <div class="thumb" aria-hidden="true"></div>
-                    <div class="card-body">
-                        <h3 class="card-title">Layouts fluidos con <code>clamp()</code></h3>
-                        <p class="card-meta">CSS • 6 min</p>
-                        <p class="card-excerpt">Tipografías y espacios adaptativos sin media queries interminables.
-                        </p>
-                    </div>
-                </a>
-            </article>
-
-            <!-- Card 5 -->
-            <article class="card">
-                <a href="#" aria-label="Leer: Paletas neutras con acentos">
-                    <!-- Imagen abstracta de colores -->
-                    <div class="thumb" aria-hidden="true"></div>
-                    <div class="card-body">
-                        <h3 class="card-title">Paletas neutras con acentos</h3>
-                        <p class="card-meta">Diseño • 4 min</p>
-                        <p class="card-excerpt">Grises elegantes + acentos suaves para un look profesional.</p>
-                    </div>
-                </a>
-            </article>
-
-            <!-- Card 6 -->
-            <article class="card">
-                <a href="#" aria-label="Leer: Rendimiento sin frameworks">
-                    <!-- Imagen de rayo o ícono de velocidad -->
-                    <div class="thumb" aria-hidden="true"></div>
-                    <div class="card-body">
-                        <h3 class="card-title">Rendimiento sin frameworks</h3>
-                        <p class="card-meta">Perf • 7 min</p>
-                        <p class="card-excerpt">Patrones simples que mantienen tu sitio ágil y escalable.</p>
-                    </div>
-                </a>
-            </article>
-        </div>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact" class="contact wrapper">
-        <h2 class="section-title">Contacto</h2>
-        <p>¿Tienes una idea? <a class="hover-ink" href="mailto:hola@example.com">Escríbeme</a>.</p>
-    </section>
-
-    <!-- Footer -->
-    <footer class="site-footer wrapper">
-        <p>© <span id="year"></span> Nicolás Muskus Tarazona</p>
-    </footer>
+        <!-- Footer -->
+        <footer class="site-footer wrapper">
+            <p>© <span id="year"></span> Nicolás Muskus Tarazona</p>
+        </footer>
+    </div>
 
     <script src="script.js"></script>
+    <script type="module" src="js/three-categories.js"></script>
+
 </body>
 
 </html>
