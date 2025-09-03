@@ -14,9 +14,9 @@
             <div class="logo">Nicolás <span>Muskus Tarazona</span></div>
 
             <nav>
-                <a href="#">Categorías</a>
-                <a href="#">Cursos</a>
-                <a href="#">Acerca de mí</a>
+                <a href="#skills">Lenguajes & Frameworks</a>
+                <a href="#blog">Proyectos</a>
+                <a href="#contact">Contacto</a>
             </nav>
         </header>
 
@@ -31,37 +31,58 @@
                 <img src="NicolasMuskus.png" alt="Ilustración">
             </div>
         </section>
+        <aside id="skills" class="categories reveal fade-up">
+            <h3 class="reveal fade-right">Mi mundo dev 🛒 <span id="cart-count">0</span></h3>
 
-        <aside class="categories reveal fade-up">
-            <h3 class="reveal fade-right">Explora por categoría</h3>
-            <div class="category-tags">
-                <div class="category reveal fade-up" id="js-category">
+            <div class="category-tags" id="category-tags">
+                <div class="category reveal fade-up" id="js-category" draggable="true">
                     <canvas></canvas>
                     <p>JavaScript</p>
+                    <button class="add-to-cart" data-skill="JavaScript">Añadir al carrito</button>
                 </div>
-                <div class="category reveal fade-left" id="php-category">
+
+                <div class="category reveal fade-left" id="php-category" draggable="true">
                     <canvas></canvas>
                     <p>PHP</p>
+                    <button class="add-to-cart" data-skill="PHP">Añadir al carrito</button>
                 </div>
-                <div class="category reveal zoom" id="laravel-category">
+
+                <div class="category reveal zoom" id="laravel-category" draggable="true">
                     <canvas></canvas>
                     <p>Laravel</p>
+                    <button class="add-to-cart laravel" data-skill="Laravel">Añadir al carrito</button>
                 </div>
-                <div class="category reveal fade-right" id="mysql-category">
+
+                <div class="category reveal fade-right" id="mysql-category" draggable="true">
                     <canvas></canvas>
                     <p>MySQL</p>
+                    <button class="add-to-cart" data-skill="MySQL">Añadir al carrito</button>
                 </div>
-                <div class="category reveal fade-right" id="postgresql-category">
+
+                <div class="category reveal fade-right" id="postgresql-category" draggable="true">
                     <canvas></canvas>
                     <p>PostgreSQL</p>
+                    <button class="add-to-cart" data-skill="PostgreSQL">Añadir al carrito</button>
                 </div>
             </div>
         </aside>
-        
+
+        <!-- Modal Laravel -->
+        <div id="laravelModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>🚀 Has desbloqueado mi experiencia en Laravel 🚀</h2>
+                <p>Prepárate para proyectos escalables y profesionales al 100%.</p>
+            </div>
+        </div>
+
+
+
+
 
         <!-- Blog -->
         <section id="blog" class="blog wrapper">
-            <h2 class="section-title">Notas & Artículos</h2>
+            <h2 class="section-title">Proyectos</h2>
             <div class="grid">
 
                 <!-- Card Proyecto E-commerce / Catálogo de Café -->
@@ -83,12 +104,14 @@
 
 
                 <article class="card">
-                    <a href="https://github.com/NicolasMuskusTarazona/Proyecto_MySQL_II" target="_blank" aria-label="Ver repositorio: Sistema de Gestión de Cuotas Banco CL">
+                    <a href="https://github.com/NicolasMuskusTarazona/Proyecto_MySQL_II" target="_blank"
+                        aria-label="Ver repositorio: Sistema de Gestión de Cuotas Banco CL">
                         <div class="card-body">
                             <h3 class="card-title">Banco CL: Gestión de Cuotas</h3>
                             <p class="card-meta">MySQL • SQL Avanzado • Procedimientos y Triggers</p>
                             <p class="card-excerpt">
-                                Sistema de gestión integral de cuotas de tarjetas bancarias: cálculo automático, historial de pagos, reportes financieros y control de descuentos
+                                Sistema de gestión integral de cuotas de tarjetas bancarias: cálculo automático,
+                                historial de pagos, reportes financieros y control de descuentos
                             </p>
                         </div>
                         <div class="thumb" aria-hidden="true">
@@ -96,41 +119,75 @@
                         </div>
                     </a>
                 </article>
-                
+
                 <!-- 3 -->
                 <article class="card">
-                    <a href="https://github.com/NicolasMuskusTarazona/ProyectoPHP_Muskus_Nicolas_Muskus_Danilo"
-                        target="_blank" aria-label="Ver repositorio: Catálogo Web de Café Colombiano">
+                    <a href="https://github.com/NicolasMuskusTarazona/app_de_ecommerce_de_ropa" target="_blank"
+                        aria-label="Ver repositorio: Ecommerce de Ropa">
                         <div class="card-body">
-                            <h3 class="card-title">Catálogo Web: Café Colombiano</h3>
-                            <p class="card-meta">PHP • MySQL • Slim • Frontend Moderno</p>
-                            <p class="card-excerpt">E-commerce de café colombiano con filtrado de variedades, panel
-                                administrativo, generación de catálogos PDF y Mapa Interactivo.</p>
+                            <h3 class="card-title">Ecommerce de Ropa</h3>
+                            <p class="card-meta">HTML • CSS • Responsive • UI/UX</p>
+                            <p class="card-excerpt">
+                                Plataforma web de ropa desarrollada con HTML y CSS, incluye página de inicio, detalle de
+                                producto y carrito de compras.
+                                Diseño responsive, navegación intuitiva y enfoque en usabilidad.
+                            </p>
+
                         </div>
                         <div class="thumb" aria-hidden="true">
-                            <img src="cafe.png" alt="Café Colombiano"
-                                style="width: 100%; height: 100%; object-fit: cover;">
+                            <img src="ropa.png" alt="Ecommerce de Ropa"
+                                style="width: 80%; height: 100%; object-fit: cover;">
                         </div>
                     </a>
                 </article>
-
             </div>
         </section>
 
         <!-- Contacto -->
         <section id="contact" class="contact wrapper">
             <h2 class="section-title">Contacto</h2>
-            <p>¿Tienes una idea? <a class="hover-ink" href="mailto:hola@example.com">Escríbeme</a>.</p>
+
+            <ul class="contact-links">
+                <li>
+                    <a href="mailto:nicolasmuskustarazona1@gmail.com" target="_blank">
+                        <i class="fas fa-envelope"></i> nicolasmuskustarazona1@gmail.com
+                    </a>
+                </li>
+                <li>
+                    <a href="https://wa.me/573011505409" target="_blank">
+                        <i class="fab fa-whatsapp"></i> +57 301 1505 409
+                    </a>
+                </li>
+                <li>
+                    <a href="https://github.com/NicolasMuskusTarazona" target="_blank">
+                        <i class="fab fa-github"></i> github.com/NicolasMuskusTarazona
+                    </a>
+                </li>
+            </ul>
         </section>
 
-        <!-- Footer -->
+        <!-- FontAwesome -->
+        <script src="https://kit.fontawesome.com/2d3a4c45a0.js" crossorigin="anonymous"></script>
+
         <footer class="site-footer wrapper">
             <p>© <span id="year"></span> Nicolás Muskus Tarazona</p>
         </footer>
     </div>
 
-    <script src="script.js"></script>
-    <script type="module" src="js/three-categories.js"></script>
+    <!-- Script para actualizar el año automáticamente -->
+    <script>
+        document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+
+    <!-- Tu JS principal -->
+    <script src="main.js"></script>
+</body>
+
+</html>
+
+
+<script src="script.js"></script>
+<script type="module" src="js/three-categories.js"></script>
 
 </body>
 

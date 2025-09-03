@@ -14,7 +14,8 @@
     --color-bg: #fafafa;
     --color-text: #222;
     --color-muted: #666;
-    --color-accent: #4f46e5; /* acento suave tipo indigo */
+    --color-accent: #4f46e5;
+    /* acento suave tipo indigo */
     --color-card: #fff;
     --radius: 1rem;
     --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.05);
@@ -142,9 +143,17 @@ html {
 }
 
 @keyframes boop {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.03) rotate(-1deg); }
-    100% { transform: scale(1); }
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.03) rotate(-1deg);
+    }
+
+    100% {
+        transform: scale(1);
+    }
 }
 
 /* -------------------------
@@ -400,22 +409,41 @@ header nav a:hover::after {
 }
 
 @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 @keyframes float1 {
-    from { transform: translateY(0) translateX(0); }
-    to { transform: translateY(30px) translateX(20px); }
+    from {
+        transform: translateY(0) translateX(0);
+    }
+
+    to {
+        transform: translateY(30px) translateX(20px);
+    }
 }
 
 @keyframes float2 {
-    from { transform: translateY(0) translateX(0); }
+    from {
+        transform: translateY(0) translateX(0);
+    }
 }
 
 @keyframes float3 {
-    from { transform: translateY(0); }
-    to { transform: translateY(15px); }
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(15px);
+    }
 }
 
 /* -------------------------
@@ -459,14 +487,12 @@ header nav a:hover::after {
     height: 80px;
     object-fit: contain;
     border-radius: 12px;
-    background: #f4f4f4;
     padding: 10px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
 .category-tags div:hover img {
     transform: scale(1.1);
-    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
 }
 
 .category-tags p {
@@ -484,19 +510,156 @@ header nav a:hover::after {
     background: var(--color-accent);
     padding: 0.25rem 0.75rem;
     border-radius: 999px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     transform: scale(1.1);
 }
 
 .category canvas {
-    width: 120px;               /* un poco más grande para destacar */
+    width: 120px;
+    /* un poco más grande para destacar */
     height: 120px;
     display: block;
-    margin: 0 auto 10px auto;   /* centrado y espacio abajo para el texto */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* animación al hover */
+    margin: 0 auto 10px auto;
+    /* centrado y espacio abajo para el texto */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* animación al hover */
     cursor: pointer;
 }
 
 .category canvas:hover {
-    transform: translateY(-5px) scale(1.05); /* efecto flotante */
+    transform: translateY(-5px) scale(1.05);
+    /* efecto flotante */
+}
+
+
+.cart-link {
+    font-weight: bold;
+    position: relative;
+}
+
+#cart-count {
+    background: crimson;
+    color: white;
+    padding: 2px 6px;
+    border-radius: 50%;
+    font-size: 0.8rem;
+    margin-left: 4px;
+}
+
+.category {
+    padding: 1rem;
+    border-radius: 12px;
+    text-align: center;
+    margin: 0.5rem;
+    background: #fafafa;
+}
+
+.category button {
+    margin-top: 0.5rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    background: #111;
+    color: #fff;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.category button:hover {
+    background: #444;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 99;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-content {
+    background: #fff;
+    margin: 10% auto;
+    padding: 2rem;
+    border-radius: 12px;
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.close {
+    float: right;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* -------------------------
+   Contacto mejorado
+-------------------------- */
+#contact {
+    text-align: center;
+    padding: 4rem 2rem;
+    border-radius: 1.5rem;
+    margin-top: 4rem;
+    position: relative;
+    overflow: hidden;
+}
+
+#contact .section-title {
+    color: var(--color-accent);
+    margin-bottom: 1rem;
+    font-size: clamp(1.8rem, 2.5vw, 2.2rem);
+}
+
+.contact-subtitle {
+    color: var(--color-muted);
+    margin-bottom: 2.5rem;
+    font-size: 1.1rem;
+}
+
+/* Links en forma de “botones futuristas” */
+.contact-links {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    max-width: 650px;
+    display: grid;
+    gap: 1.2rem;
+}
+
+.contact-links li a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: var(--color-text);
+    background: #fff;
+    padding: 1rem 1.5rem;
+    border-radius: 999px;
+    text-decoration: none;
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition);
+}
+
+.contact-links li a i {
+    font-size: 1.4rem;
+    color: var(--color-accent);
+    transition: transform var(--transition);
+}
+
+.contact-links li a:hover {
+    background: var(--color-accent);
+    color: #fff;
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(79, 70, 229, 0.3);
+}
+
+.contact-links li a:hover i {
+    color: #fff;
+    transform: scale(1.2) rotate(-5deg);
 }
